@@ -1,0 +1,5 @@
+@extends('layouts.app') @section('title','Projects') @section('content')
+<div class="page-head"><div><p class="eyebrow">WORKSPACE</p><h1>Projects</h1></div><form class="search" action="{{ route('projects.search') }}"><input name="q" placeholder="Search projects…"><button>Search</button></form></div>
+<div class="two-col"><section class="panel"><h2>Your projects</h2>@forelse($projects as $project)<a class="project-row" href="{{ route('projects.show',$project) }}"><span class="dot"></span><div><strong>{{ $project->name }}</strong><small>{{ $project->description }}</small></div><span class="pill">{{ $project->status }}</span></a>@empty<p>No projects yet.</p>@endforelse</section>
+<form class="card" method="post" action="{{ route('projects.store') }}">@csrf<h2>Create project</h2><label>Name<input name="name" required></label><label>Description<textarea name="description"></textarea></label><label>Budget<input name="budget" type="number" min="0"></label><button>Create project</button></form></div>
+@endsection

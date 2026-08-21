@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      APP_NAME: TaskPilot
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_KEY: base64:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+      APP_URL: http://localhost:8000
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /app/database/database.sqlite
+      SESSION_DRIVER: database
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      TASKPILOT_INTEGRATION_KEY: tp_demo_sk_7Qf91k_fake
+    restart: "no"

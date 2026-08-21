@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>@yield('title','TaskPilot') · TaskPilot</title><link rel="stylesheet" href="/css/app.css"></head><body>
+<header><a class="brand" href="{{ route('dashboard') }}"><span>◆</span> TaskPilot</a>@auth<nav><a href="{{ route('dashboard') }}">Dashboard</a><a href="{{ route('projects.index') }}">Projects</a><a href="{{ route('profile.edit') }}">Profile</a><form action="{{ route('logout') }}" method="post">@csrf<button class="link">Logout</button></form></nav>@endauth</header>
+<main>@if(session('ok'))<div class="flash">{{ session('ok') }}</div>@endif @if($errors->any())<div class="error">{{ $errors->first() }}</div>@endif @yield('content')</main>
+<footer>TaskPilot AI Workspace · demo environment</footer></body></html>

@@ -1,0 +1,5 @@
+@extends('layouts.app') @section('title','Dashboard') @section('content')
+<div class="hero"><div><p class="eyebrow">GOOD MORNING, {{ strtoupper(auth()->user()->name) }}</p><h1>Keep the momentum.</h1><p>Your active work, gathered in one place.</p></div><a class="button" href="{{ route('projects.index') }}">New project</a></div>
+<div class="stats"><article><b>{{ auth()->user()->projects()->count() }}</b><span>Your projects</span></article><article><b>{{ auth()->user()->projects()->where('status','active')->count() }}</b><span>In progress</span></article><article><b>{{ auth()->user()->role }}</b><span>Workspace role</span></article></div>
+<section class="panel"><div class="panel-head"><h2>Recent projects</h2><a href="{{ route('projects.index') }}">View all →</a></div>@forelse($projects as $project)<a class="project-row" href="{{ route('projects.show',$project) }}"><span class="dot"></span><div><strong>{{ $project->name }}</strong><small>{{ Str::limit($project->description,70) }}</small></div><span class="pill">{{ $project->status }}</span><b>${{ number_format($project->budget) }}</b></a>@empty<p class="empty">No projects yet.</p>@endforelse</section>
+@endsection

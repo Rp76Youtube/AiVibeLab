@@ -1,0 +1,3 @@
+@extends('layouts.app') @section('title','Sign in') @section('content')
+<div class="auth"><section><p class="eyebrow">AI-NATIVE PROJECT WORKSPACE</p><h1>Ship projects,<br><em>not busywork.</em></h1><p>TaskPilot keeps your team, notes and deliverables in one calm workspace.</p><div class="demo"><strong>Demo member</strong><code>reza@taskpilot.test</code><code>Password123!</code></div></section><form class="card" method="post" action="/login">@csrf<h2>Welcome back</h2><label>Email<input name="email" type="email" value="{{ old('email') }}" required></label><label>Password<input name="password" type="password" required></label><button>Sign in</button><p>New here? <a href="{{ route('register') }}">Create an account</a></p></form></div>
+@endsection

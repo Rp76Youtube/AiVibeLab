@@ -1,0 +1,3 @@
+@extends('layouts.app') @section('title','Search') @section('content')
+<div class="page-head"><div><p class="eyebrow">SEARCH RESULTS</p><h1>Results for “{{ $query }}”</h1></div><a class="button muted" href="{{ route('projects.index') }}">Back</a></div><section class="panel">@forelse($projects as $project)<a class="project-row" href="{{ route('projects.show',$project->id) }}"><span class="dot"></span><div><strong>{{ $project->name }}</strong><small>{{ $project->description }}</small></div><span class="pill">{{ $project->status }}</span></a>@empty<p>No matches.</p>@endforelse</section>
+@endsection
